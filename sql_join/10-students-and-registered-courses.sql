@@ -1,9 +1,9 @@
 SELECT
-    s.name AS student_name,
-    c.title AS course_title
-FROM students s
-INNER JOIN enrollments e
-    ON s.id = e.student_id
-INNER JOIN courses c
-    ON c.id = e.course_id
+    students.name AS student_name,
+    courses.title AS course_title
+FROM students
+JOIN registrations
+    ON students.id = registrations.student_id
+JOIN courses
+    ON courses.id = registrations.course_id
 ORDER BY student_name ASC, course_title ASC;
