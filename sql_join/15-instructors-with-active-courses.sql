@@ -1,8 +1,8 @@
 SELECT DISTINCT
-    i.name AS instructor_name
-FROM instructors i
-JOIN courses c
-    ON i.id = c.instructor_id
-JOIN enrollments e
-    ON c.id = e.course_id
+    instructors.name AS instructor_name
+FROM instructors
+INNER JOIN courses
+    ON instructors.id = courses.instructor_id
+INNER JOIN registrations
+    ON courses.id = registrations.course_id
 ORDER BY instructor_name ASC;
